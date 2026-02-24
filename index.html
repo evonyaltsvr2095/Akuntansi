@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Keuangan</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <h2>Bani Kaprawi</h2>
+    <ul>
+  <li><a href="#" class="sidebar-link" data-page="dashboard">Dashboard</a></li>
+  <li><a href="#" class="sidebar-link" data-page="laporan">Laporan</a></li>
+  <li><a href="#" id="logout">Logout</a></li>
+</ul>
+  </aside>
+    <div id="overlay" class="overlay"></div>
+
+  <main class="content">
+    <div class="topbar">
+  <div class="topbar-left">
+    <button id="menuToggle" class="menu-btn">☰</button>
+    <span class="brand-name"><i>Bani Kaprawi Ltd.</i></span>
+  </div>
+</div>
+
+<!-- <h1 id="pageTitle">Dashboard</h1> -->
+
+  <section id="dashboard" class="page active">
+
+  <div class="dashboard-grid">
+
+    <!-- KOLOM KIRI (RINGKASAN) -->
+    <div class="summary">
+      
+      <div class="card saldo-card">
+        <p>Saldo</p>
+        <h2 id="saldo" class="number saldo">Rp 0</h2>
+      </div>
+
+      <div class="card income-card">
+        <div class="card-header">
+          <div>
+            <p>Total Pemasukan</p>
+            <h3 id="totalIncome" class="number income">Rp 0</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="card expense-card">
+        <div class="card-header">
+          <div>
+            <p>Total Pengeluaran</p>
+            <h3 id="totalExpense" class="number expense">Rp 0</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- KOLOM KANAN (FORM INPUT) -->
+    <div class="input-area">
+
+      <div class="card">
+        <h3>Tambah Pemasukan</h3>
+        <form id="incomeForm">
+          <input type="date" id="incomeDate" required>
+          <input type="text" id="incomeDesc" placeholder="Keterangan" required>
+          <input type="number" id="incomeAmount" placeholder="Jumlah" required>
+          <button type="submit">Tambah</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>Tambah Pengeluaran</h3>
+        <form id="expenseForm">
+          <input type="date" id="expenseDate" required>
+          <input type="text" id="expenseDesc" placeholder="Keterangan" required>
+          <input type="number" id="expenseAmount" placeholder="Jumlah" required>
+          <button type="submit">Tambah</button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <section id="laporan" class="page">
+  <h2>Laporan Transaksi</h2>
+
+  <div class="report-container">
+
+    <!-- FILTER -->
+    <div class="report-actions">
+      <select id="monthFilter">
+        <option value="all">Semua Bulan</option>
+      </select>
+
+      <button id="resetReport" class="admin-only">
+        Reset Semua Laporan
+      </button>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="report-summary">
+      <div class="summary-box">
+        <h4>Total Pemasukan</h4>
+        <p id="reportIncome" style="color:#16a34a;">Rp 0</p>
+      </div>
+
+      <div class="summary-box">
+        <h4>Total Pengeluaran</h4>
+        <p id="reportExpense" style="color:#dc2626;">Rp 0</p>
+      </div>
+
+      <div class="summary-box">
+        <h4>Saldo</h4>
+        <p id="reportBalance">Rp 0</p>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    
+    <div class="table-wrapper">
+    <table class="report-table">
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Keterangan</th>
+          <th>Tipe</th>
+          <th style="text-align:right;">Jumlah</th>
+        </tr>
+      </thead>
+      <tbody id="reportTableBody">
+        <!-- Render JS -->
+      </tbody>
+    </table>
+    </div>
+
+  </div>
+</section>
+
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
