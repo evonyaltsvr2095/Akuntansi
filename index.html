@@ -12,7 +12,15 @@
     <h2>Bani Kaprawi</h2>
     <ul>
   <li><a href="#" class="sidebar-link" data-page="dashboard">Dashboard</a></li>
+
+  
   <li><a href="#" class="sidebar-link" data-page="laporan">Laporan</a></li>
+  
+  <!-- KHUSUS ADMIN -->
+  <li class="admin-only">
+    <a href="#" class="sidebar-link" data-page="pengaturan">Reset Data</a>
+  </li>
+  
   <li><a href="#" id="logout">Logout</a></li>
 </ul>
   </aside>
@@ -22,7 +30,7 @@
     <div class="topbar">
   <div class="topbar-left">
     <button id="menuToggle" class="menu-btn">☰</button>
-    <span class="brand-name"><i>Bani Kaprawi Ltd.</i></span>
+    <span class="brand-bg">BANI KAPRAWI</span>
   </div>
 </div>
 
@@ -142,6 +150,58 @@
     </div>
 
   </div>
+</section>
+
+<section id="pengaturan" class="page">
+  <h2 class="page-title"><!-- Reset Data --></h2>
+
+  <div class="settings-container">
+
+    <div class="settings-card">
+      <div class="settings-info">
+        <h3>Reset Semua Data</h3>
+        <p>Hapus seluruh transaksi secara permanen.</p>
+      </div>
+
+      <button id="resetAllData" class="btn-danger">
+        Reset Data
+      </button>
+    </div>
+
+  </div>
+  
+  <!-- INFO WEBSITE -->
+<div class="settings-card website-info">
+  <div class="settings-info">
+    <h3>Informasi Website</h3>
+
+    <p>
+      Website sederhana untuk manajemen keuangan keluarga
+    </p>
+
+    <h4>Fitur Utama:</h4>
+    <ul class="feature-list">
+      <li>Login: validasi email/password, show/hide password, animasi card masuk</li>
+      <li>Dashboard: saldo, total pemasukan/pengeluaran, input transaksi</li>
+      <li>Laporan: filter per bulan, tabel transaksi, total & saldo terupdate, reset laporan (admin only)</li>
+      <li>Sidebar & Navigasi: toggle responsive, auto-close saat klik menu/overlay</li>
+      <li>Role-Based: menu admin-only</li>
+    </ul>
+
+    <h4>Teknologi:</h4>
+    <ul class="tech-list">
+      <li>HTML5, CSS3, JavaScript</li>
+      <li>Google Fonts: Inter</li>
+      <li>Fully responsive & modern UI (glassmorphism, animasi ringan)</li>
+    </ul>
+ </div>
+ 
+</div>
+
+ <div class="footer-pengaturan">
+   <p>Fairuz Iqbal © Kanvas Putih | 2026</p>
+ </div>
+ 
 </section>
 
   </main>
