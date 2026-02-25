@@ -35,6 +35,13 @@ document.querySelectorAll("[data-page]").forEach(link => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
     const page = this.getAttribute("data-page");
+    
+    // 🔒 Proteksi halaman pengaturan
+    if (page === "pengaturan" && currentUser.role !== "admin") {
+      alert("Akses ditolak!");
+      return;
+    }
+
     document.querySelectorAll(".page")
       .forEach(p => p.classList.remove("active"));
     document.getElementById(page)
@@ -183,6 +190,30 @@ function renderReport() {
   document.getElementById("reportExpense").innerText = formatRupiah(totalExpense);
   document.getElementById("reportBalance").innerText =
     formatRupiah(totalIncome - totalExpense);
+}
+
+const resetAllBtn = document.getElementById("resetAllData");
+
+if (resetAllBtn) {
+  resetAllBtn.addEventListener("click", function() {
+
+    if (currentUser.role !== "admin") {
+      alert("Hanya admin yang bisa melakukan ini.");
+      return;
+    }
+
+    const konfirmasi = confirm("Yakin ingin menghapus semua data?");
+
+    if (!konfirmasi) return;
+
+    transactions = [];
+    localStorage.setItem("transactions", JSON.stringify([]));
+
+    updateDashboard();
+    renderReport();
+
+    alert("Semua data berhasil dihapus.");
+  });
 }
 
 // ===== LOGOUT =====
